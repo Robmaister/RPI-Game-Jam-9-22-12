@@ -7,7 +7,7 @@ from tileset import Tileset
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((640, 480), HWSURFACE|DOUBLEBUF)
+    screen = pygame.display.set_mode((480, 480), HWSURFACE|DOUBLEBUF)
     tileset = Tileset("../assets/maps/test.tmx")
 
     while 1:
