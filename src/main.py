@@ -9,12 +9,13 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((640, 480), HWSURFACE|DOUBLEBUF)
     tileset = Tileset("../assets/maps/test.tmx")
-    
-    stopevents = QUIT, KEYDOWN
+
     while 1:
         for e in pygame.event.get():
-            if e.type in stopevents:
+            if e.type == QUIT:
                 return
+            elif e.type == KEYDOWN:
+                print "key pressed", e
         tileset.render(screen)
         pygame.display.flip()
 
