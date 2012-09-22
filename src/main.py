@@ -6,13 +6,22 @@ from pygame.locals import *
 from tileset import Tileset
 from player import Player
 
+def drawtext():        
+    font = pygame.font.Font(None,17)
+    text= font.render(" M i s s i o n",True,(255,255,255))
+    textRect = text.get_rect()
+    textRect.right = screen.get_rect().right
+    textRect.right = screen.get_rect().right
+    main.screen.blit(text, textRect)
+
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((640, 480), HWSURFACE|DOUBLEBUF)
+    screen = pygame.display.set_mode((480, 480), HWSURFACE|DOUBLEBUF)
     tileset = Tileset("../assets/maps/test.tmx")
     player = Player((0, 0), 1)
     clock = pygame.time.Clock()
     allsprites = pygame.sprite.RenderPlain((player))
+    
 
     while 1:
         clock.tick(60)
@@ -32,7 +41,10 @@ def main():
         allsprites.update()
         tileset.render(screen)
         allsprites.draw(screen)
+        drawtext()
         pygame.display.flip()
+        pygame.display.update()
+    
 
     
 if __name__ == "__main__": main()
