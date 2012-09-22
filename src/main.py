@@ -16,9 +16,11 @@ def drawtext():
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((480, 480), HWSURFACE|DOUBLEBUF)
+    screen = pygame.display.set_mode((1024, 768), HWSURFACE|DOUBLEBUF)
     tileset = Tileset("../assets/maps/test.tmx")
-    player = Player((0, 0), 1)
+    walls = tileset.get_walls()
+    player = Player((32, 32), 1)
+    player.set_walls(walls)
     clock = pygame.time.Clock()
     allsprites = pygame.sprite.RenderPlain((player))
     
