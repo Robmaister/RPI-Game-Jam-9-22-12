@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="15" height="15" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="32" height="24" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="Backyard" tilewidth="32" tileheight="32">
   <image source="../images/temp.png" width="128" height="128"/>
  </tileset>
- <layer name="Tile Layer 1" width="15" height="15">
+ <layer name="Tile Layer 1" width="32" height="24">
   <data encoding="base64" compression="zlib">
-   eJxjZGBgYKQAM5GBR/WO6h2OesnFALtKAYs=
+   eJztzaEBAAAMAiDd/0fvDAuBTJN07Eb8fr/f7/f7/f7Fv/SRFwWV
   </data>
  </layer>
+ <layer name="Tile Layer 2" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztzbENAAAMg7D0/6d7BouRmH3bLr6Kz+fz+Xw+n88v/PIHlPYAbQ==
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="32" height="24"/>
 </map>
