@@ -15,9 +15,17 @@ def main():
     player.set_walls(walls)
     clock = pygame.time.Clock()
     allsprites = pygame.sprite.RenderPlain((player))
+    
+    levelTime = 5.0
 
     while 1:
         clock.tick(60)
+        levelTime -= clock.get_time() / 1000.0
+        
+        print levelTime
+        if (levelTime <= 0.0):
+            return
+        
         for e in pygame.event.get():
             if e.type == QUIT:
                 return
