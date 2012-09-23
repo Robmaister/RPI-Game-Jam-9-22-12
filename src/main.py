@@ -13,12 +13,15 @@ GAME = 1
 WIN_MENU = 2
 LOSE_MENU = 3
 
-def drawtext(text, font, screen):        
-    rendered_text = font.render(text,True,(255,255,255))
-    textRect = rendered_text.get_rect()
-    textRect.right = screen.get_rect().right
-    textRect.right = screen.get_rect().right
-    screen.blit(rendered_text, textRect)
+def drawtext(font, text, screen, color=(255,255,255)):
+    lines = text.splitlines()
+    height = 0
+    #render each line
+    height = 0
+    for l in lines:
+        t = font.render(l, 0, color)
+        screen.blit(t, (screen.get_width() - font.size(l)[0], height))
+        height += font.get_linesize()
     
 def start_menu():
     global state
@@ -53,7 +56,7 @@ def game():
     allsprites.update()
     tileset.render(screen)
     allsprites.draw(screen)
-    drawtext(str(int(levelTime)), font, screen)    
+    drawtext(font, str(int(levelTime)), screen)    
     
 def win_menu():
     global state
@@ -77,7 +80,7 @@ def collide_obstacle(obstacle):
             goal_obstacles.remove(obstacle)
             allsprites.remove(obstacle)
             return obstacle
-    else:
+    elif obstacle.get_obs_type() == "Obstacle":
         levelTime -= 2.0
     
 
@@ -98,6 +101,7 @@ if __name__ == "__main__":
     player.set_walls(walls)
     player.set_obstacles(obstacles)
     clock = pygame.time.Clock()
+
     allsprites = pygame.sprite.RenderPlain(obstacles)
     allsprites.add(player)
     font = pygame.font.Font(None,17)
