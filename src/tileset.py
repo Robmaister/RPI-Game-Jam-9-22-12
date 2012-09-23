@@ -1,4 +1,5 @@
 import pygame
+import obstacle
 from pytmx import tmxloader
 from pygame import surface
 
@@ -11,7 +12,8 @@ class Tileset(object):
         gt = self.tiles.getTileImage
         
         self.surface = surface.Surface((self.tiles.width * tw, self.tiles.height * th))
-        
+        self.tile_width = tw
+        self.tile_height = th
         #draw map
         for y in xrange(0, self.tiles.height):
             for x in xrange(0, self.tiles.width):
@@ -33,4 +35,6 @@ class Tileset(object):
                 
     def get_obstacles(self):
         obstacles = []
+        for o in self.tiles.getObjects():
+            obstacles.append(obstacle.Obstacle(o.x, o.y, o.name, o.type))
         return obstacles

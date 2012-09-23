@@ -3,19 +3,18 @@
  <tileset firstgid="1" name="Backyard" tilewidth="32" tileheight="32">
   <image source="../images/temp.png" width="128" height="128"/>
  </tileset>
- <layer name="Tile Layer 1" width="32" height="24">
+ <layer name="Graphics" width="32" height="24">
   <data encoding="base64" compression="zlib">
    eJztzaEBAAAMAiDd/0fvDAuBTJN07Eb8fr/f7/f7/f7Fv/SRFwWV
   </data>
  </layer>
- <layer name="Tile Layer 2" width="32" height="24">
+ <layer name="Physics" width="32" height="24">
   <data encoding="base64" compression="zlib">
    eJztzbENAAAMg7D0/6d7BouRmH3bLr6Kz+fz+Xw+n88v/PIHlPYAbQ==
   </data>
  </layer>
- <objectgroup name="Object Layer 1" width="32" height="24">
-  <object name="A" type="Goal" x="202" y="132" width="32" height="32"/>
+ <objectgroup name="Obstacles" width="32" height="24">
+  <object name="B" type="Goal" x="202" y="132" width="32" height="32"/>
   <object name="B" type="Obstacle" x="212" y="254" width="32" height="32"/>
-  <object x="367" y="176" width="66" height="56"/>
  </objectgroup>
 </map>
