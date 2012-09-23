@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="32" height="24" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="Backyard" tilewidth="32" tileheight="32">
+  <image source="../images/tileset.png" width="128" height="128"/>
+ </tileset>
+ <layer name="Graphics" width="32" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztzbkBACAMAzHzBvZfGE+BmytUa0hqIdOW3ZDOz8/Pz8/Pz8/P//kv2yHHHgzrGLc=
+  </data>
+ </layer>
+ <layer name="Physics" width="32" height="24" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJztzTENAAAMw7BCGH+0g5HHkXL7tl18FZ/P5/P5fD6fX/jlD5vYBsE=
+  </data>
+ </layer>
+ <objectgroup name="Obstacles" width="32" height="24">
+  <object name="BoxFort" type="Obstacle" x="38" y="48" width="32" height="32"/>
+  <object name="BuildingBlocks" type="Goal" x="540" y="556" width="32" height="32"/>
+  <object name="GreenArmyMen" type="Goal" x="47" y="439" width="32" height="32"/>
+  <object name="Dog" type="Goal" x="930" y="321" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="414" y="114" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="324" y="270" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="137" y="216" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="278" y="128" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="208" y="333" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="331" y="400" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="398" y="262" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="541" y="364" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="630" y="155" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="762" y="275" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="530" y="230" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="897" y="120" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="766" y="81" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="894" y="238" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="712" y="293" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="678" y="409" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="795" y="465" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="946" y="521" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="792" y="651" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="667" y="542" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="571" y="650" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="430" y="466" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="371" y="583" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="229" y="487" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="124" y="575" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="196" y="633" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="119" y="653" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="366" y="669" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="471" y="579" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="235" y="222" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="182" y="103" width="32" height="32"/>
+  <object name="Rock" type="Obstacle" x="106" y="299" width="32" height="32"/>
+ </objectgroup>
+</map>

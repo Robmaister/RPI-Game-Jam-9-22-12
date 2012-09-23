@@ -8,9 +8,13 @@ class Obstacle(pygame.sprite.Sprite):
         self.image, self.rect = resources.load_image("../assets/images/objs/" + name + ".bmp", -1)
         self.rect.move_ip(x, y)
         self.obs_type = obs_type
+        self.name = name
         
     def get_rect(self):
         return self.rect
     
     def get_obs_type(self):
         return self.obs_type
+    
+    def get_name(self):
+        return self.name
