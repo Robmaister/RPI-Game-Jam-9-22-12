@@ -6,14 +6,24 @@ from pygame.locals import *
 from tileset import Tileset
 from player import Player
 
-def drawtext():        
-    font = pygame.font.Font(None,17)
-    text= font.render(" M i s s i o n",True,(255,255,255))
-    textRect = text.get_rect()
-    textRect.right = screen.get_rect().right
-    textRect.right = screen.get_rect().right
-    main.screen.blit(text, textRect)
-
+def drawtext(font, text, screen, color=(255,255,255), bg=(0,0,0),):
+    lines = text.splitlines()
+    #first we need to find image size...
+    width = height = 0
+    for l in lines:
+        width = max(width, font.size(l)[0])
+        height += font.get_linesize()
+    #create 8bit image for non-aa text..
+    img = pygame.Surface((width, height), 0, 8)
+    img.set_palette([bg, color])
+    #render each line
+    height = 0
+    for l in lines:
+        t = font.render(l, 0, color, bg)
+        img.blit(t,( width -font.size(l)[0]), height)
+        height += font.get_linesize()
+        
+    
 def main():
     pygame.init()
     screen = pygame.display.set_mode((1024, 768), HWSURFACE|DOUBLEBUF)
@@ -43,7 +53,7 @@ def main():
         allsprites.update()
         tileset.render(screen)
         allsprites.draw(screen)
-        drawtext()
+        drawtext(None, 'hello',5)
         pygame.display.flip()
         pygame.display.update()
     
