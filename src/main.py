@@ -67,8 +67,11 @@ def game():
         state = LOSE_MENU
         
     if len(goal_obstacles) == 0:
-        state = DESC_MENU
         cur_level += 1
+        if cur_level >= len(levels):
+            state = WIN_MENU
+        else:
+            state = DESC_MENU
     
     key = pygame.key.get_pressed()
     if key[pygame.K_w]:
@@ -79,10 +82,14 @@ def game():
         player.move_left()
     if key[pygame.K_d]:
         player.move_right()
+        
+    if not key[pygame.K_w] and not key[pygame.K_a] and not key[pygame.K_s] and not key[pygame.K_d]:
+        player.pause()
     
     allsprites.update()
     tileset.render(screen)
     allsprites.draw(screen)
+    player.update_anim(pygame.time.get_ticks())
     
     need_text = "You need to collect:     "
     for o in goal_obstacles:
@@ -140,6 +147,8 @@ def init():
 
 if __name__ == "__main__":
     pygame.init()
+    pygame.display.set_caption("60 Sekonds to Save Boxopolis")
+    #pygame.display.set_icon(resources.load_image_no_rect("../assets/images/player/front1.bmp", -1))
         
     cur_level = 0
         

@@ -1,6 +1,5 @@
 import pygame
 import resources
-from pygame.math import Vector2
 
 class Obstacle(pygame.sprite.Sprite):
     def __init__(self, x, y, name, obs_type):

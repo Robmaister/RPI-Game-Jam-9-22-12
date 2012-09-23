@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="32" height="24" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="Backyard" tilewidth="32" tileheight="32">
-  <image source="../Level art/RPI-Game-Jam-9-22-12/assets/images/tileset.png" width="128" height="128"/>
+  <image source="../images/tileset.png" width="128" height="128"/>
  </tileset>
  <layer name="Graphics" width="32" height="24">
   <data encoding="base64" compression="zlib">
