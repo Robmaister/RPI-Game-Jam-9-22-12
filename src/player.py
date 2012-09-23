@@ -61,3 +61,7 @@ class Player(pygame.sprite.Sprite):
                 obstacle_to_remove = self.collide_obstacle(o)
         if obstacle_to_remove is not None:
             self.obstacles.remove(obstacle_to_remove)
+            
+    def move_to(self, x, y):
+        self.rect.left = x
+        self.rect.top = y

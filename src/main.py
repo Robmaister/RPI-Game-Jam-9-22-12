@@ -24,13 +24,14 @@ def drawtext(font, text, screen, color=(255,255,255)):
         height += font.get_linesize()
     
 def start_menu():
-    global state
     global levelTime
-    key = pygame.key.get_pressed()
-    if key[pygame.K_RETURN]:
-        state = GAME
     screen.blit(start_bg, (0, 0))
-    levelTime = 60.0
+    
+def start_menu_key(event):
+    global state
+    if event.key == pygame.K_RETURN:
+        state = GAME
+        init()
 
 def game():
     global state
@@ -57,23 +58,28 @@ def game():
     tileset.render(screen)
     allsprites.draw(screen)
     drawtext(font, str(int(levelTime)), screen)    
+
+def game_key(event):
+    pass
     
 def win_menu():
-    global state
-    key = pygame.key.get_pressed()
-    if key[pygame.K_RETURN]:
-        state = START_MENU
     screen.blit(win_bg, (0, 0))
+    
+def win_menu_key(event):
+    global state
+    if event.key == pygame.K_RETURN:
+        state = START_MENU
 
 def lose_menu():
-    global state
-    key = pygame.key.get_pressed()
-    if key[pygame.K_RETURN]:
-        state = START_MENU
     screen.blit(lose_bg, (0, 0))
     
+def lose_menu_key(event):
+    global state
+    if event.key == pygame.K_RETURN:
+        state = START_MENU
+    
 def collide_obstacle(obstacle):
-    global levelTime
+    global levelTime, goal_obstacles
     key = pygame.key.get_pressed()
     if key[pygame.K_e]:
         if obstacle.get_obs_type() == "Goal":
@@ -83,6 +89,21 @@ def collide_obstacle(obstacle):
     elif obstacle.get_obs_type() == "Obstacle":
         levelTime -= 2.0
     
+def init():
+    global goal_obstacles, allsprites, tileset, walls, obstacles, player, levelTime
+    walls = tileset.get_walls()
+    obstacles = tileset.get_obstacles()
+    player.set_walls(walls)
+    player.set_obstacles(obstacles)
+    player.move_to(32, 32)
+    goal_obstacles = []
+    for o in obstacles:
+        if o.get_obs_type() == "Goal":
+            goal_obstacles.append(o)
+    allsprites = pygame.sprite.RenderPlain(obstacles)
+    allsprites.add(player)
+    levelTime = 60.0
+    tileset = Tileset("../assets/maps/test.tmx")
 
 if __name__ == "__main__":
     pygame.init()
@@ -95,21 +116,17 @@ if __name__ == "__main__":
     goal_obstacles = []
     screen = pygame.display.set_mode((1024, 768), HWSURFACE|DOUBLEBUF)
     tileset = Tileset("../assets/maps/test.tmx")
-    walls = tileset.get_walls()
-    obstacles = tileset.get_obstacles()
+    walls = []
+    obstacles = []
     player = Player((32, 32), 1, lambda o: collide_obstacle(o))
-    player.set_walls(walls)
-    player.set_obstacles(obstacles)
     clock = pygame.time.Clock()
 
     allsprites = pygame.sprite.RenderPlain(obstacles)
     allsprites.add(player)
-    font = pygame.font.Font(None,17)
-
-    for o in obstacles:
-        if o.get_obs_type() == "Goal":
-            goal_obstacles.append(o)
+    font = pygame.font.Font(None,36)
     
+    init()
+
     start_bg, start_rect = resources.load_image("../assets/images/bg/start.bmp")
     win_bg, win_rect = resources.load_image("../assets/images/bg/win.bmp")
     lose_bg, lose_rect = resources.load_image("../assets/images/bg/lose.bmp")
@@ -120,6 +137,11 @@ if __name__ == "__main__":
         for e in pygame.event.get():
             if e.type == QUIT:
                 sys.exit()
+            elif e.type == KEYDOWN:
+                {START_MENU: start_menu_key,
+                 GAME: game_key,
+                 WIN_MENU: win_menu_key,
+                 LOSE_MENU: lose_menu_key}[state](e)
         
         {START_MENU: start_menu,
          GAME: game,
