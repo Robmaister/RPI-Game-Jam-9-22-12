@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="32" height="24" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="Backyard" tilewidth="32" tileheight="32">
-  <image source="../images/temp.png" width="128" height="128"/>
+  <image source="../images/tileset.png" width="128" height="128"/>
  </tileset>
  <layer name="Graphics" width="32" height="24">
   <data encoding="base64" compression="zlib">
-   eJztzaEBAAAMAiDd/0fvDAuBTJN07Eb8fr/f7/f7/f7Fv/SRFwWV
+   eJztzbkBACAMAzHzBvZfGE+BmytUa0hqIdOW3ZDOz8/Pz8/Pz8/P//kv2yHHHgzrGLc=
   </data>
  </layer>
- <layer name="Physics" width="32" height="24">
+ <layer name="Physics" width="32" height="24" visible="0">
   <data encoding="base64" compression="zlib">
-   eJztzbENAAAMg7D0/6d7BouRmH3bLr6Kz+fz+Xw+n88v/PIHlPYAbQ==
+   eJztzTENAAAMw7BCGH+0g5HHkXL7tl18FZ/P5/P5fD6fX/jlD5vYBsE=
   </data>
  </layer>
  <objectgroup name="Obstacles" width="32" height="24">

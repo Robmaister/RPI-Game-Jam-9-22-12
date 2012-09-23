@@ -5,7 +5,7 @@ from pygame.math import Vector2
 class Obstacle(pygame.sprite.Sprite):
     def __init__(self, x, y, name, obs_type):
         pygame.sprite.Sprite.__init__(self)
-        self.image, self.rect = resources.load_image("../assets/images/objs/" + name + ".bmp")
+        self.image, self.rect = resources.load_image("../assets/images/objs/" + name + ".bmp", -1)
         self.rect.move_ip(x, y)
         self.obs_type = obs_type
         
