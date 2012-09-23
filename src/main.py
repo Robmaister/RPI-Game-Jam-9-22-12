@@ -8,6 +8,13 @@ from pygame.locals import *
 from tileset import Tileset
 from player import Player
 
+# global constants
+FREQ = 44100   # same as audio CD
+BITSIZE = -16  # unsigned 16 bit
+CHANNELS = 2   # 1 == mono, 2 == stereo
+BUFFER = 1024  # audio buffer size in no. of samples
+FRAMERATE = 30 # how often to check if playback has finished
+
 START_MENU = 0
 GAME = 1
 WIN_MENU = 2
@@ -103,15 +110,17 @@ def lose_menu_key(event):
         state = START_MENU
     
 def collide_obstacle(obstacle):
-    global levelTime, goal_obstacles
+    global levelTime, goal_obstacles, pickup_sound, hurt_sound
     key = pygame.key.get_pressed()
     if key[pygame.K_e]:
         if obstacle.get_obs_type() == "Goal":
             goal_obstacles.remove(obstacle)
             allsprites.remove(obstacle)
+            pickup_sound.play()
             return obstacle
     elif obstacle.get_obs_type() == "Obstacle":
-        levelTime -= 2.0
+        levelTime -= 0.5
+        hurt_sound.play()
     
 def init():
     global goal_obstacles, allsprites, tileset, walls, obstacles, player, levelTime
@@ -167,6 +176,8 @@ if __name__ == "__main__":
     obstacles = []
     player = Player((32, 32), 1, lambda o: collide_obstacle(o))
     clock = pygame.time.Clock()
+    
+    
 
     allsprites = pygame.sprite.RenderPlain(obstacles)
     allsprites.add(player)
@@ -179,6 +190,10 @@ if __name__ == "__main__":
     lose_bg, lose_rect = resources.load_image("../assets/images/bg/lose.bmp")
     desc_bg = pygame.Surface((1024, 768)).convert()
     desc_bg.fill((255, 255, 255))
+    
+    pygame.mixer.init(FREQ, BITSIZE, CHANNELS, BUFFER)
+    hurt_sound = pygame.mixer.Sound("../assets/sound/hurt.wav")
+    pickup_sound = pygame.mixer.Sound("../assets/sound/pickup.wav")
     
     while 1:
         clock.tick(60)

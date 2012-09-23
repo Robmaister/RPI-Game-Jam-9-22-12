@@ -14,7 +14,7 @@
   </data>
  </layer>
  <objectgroup name="Obstacles" width="32" height="24">
-  <object name="BoxFort" type="Obstacle" x="38" y="48" width="32" height="32"/>
+  <object name="BoxFort" x="39" y="38" width="32" height="32"/>
   <object name="PlateOfCookies" type="Goal" x="332" y="394" width="32" height="32"/>
   <object name="BuildingBlocks" type="Goal" x="946" y="616" width="32" height="32"/>
   <object name="Skateboard" type="Goal" x="936" y="57" width="32" height="32"/>

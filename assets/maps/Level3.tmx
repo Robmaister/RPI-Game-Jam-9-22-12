@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="32" height="24" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="Backyard" tilewidth="32" tileheight="32">
-  <image source="../images/tileset.png" width="128" height="128"/>
+  <image source="../Level art/RPI-Game-Jam-9-22-12/assets/images/tileset.png" width="128" height="128"/>
  </tileset>
  <layer name="Graphics" width="32" height="24">
   <data encoding="base64" compression="zlib">
@@ -14,10 +14,10 @@
   </data>
  </layer>
  <objectgroup name="Obstacles" width="32" height="24">
-  <object name="BoxFort" type="Obstacle" x="38" y="48" width="32" height="32"/>
+  <object name="BoxFort" x="39" y="39" width="32" height="32"/>
   <object name="PlateOfCookies" type="Goal" x="908" y="135" width="32" height="32"/>
-  <object name="B" type="Obstacle" x="928" y="650" width="32" height="32"/>
-  <object name="B" type="Obstacle" x="99" y="424" width="32" height="32"/>
+  <object name="PlateOfCookies" type="Obstacle" x="928" y="650" width="32" height="32"/>
+  <object name="PlateOfCookies" type="Obstacle" x="99" y="424" width="32" height="32"/>
   <object name="Rock" type="Obstacle" x="475" y="274" width="32" height="32"/>
   <object name="Rock" type="Obstacle" x="578" y="412" width="32" height="32"/>
   <object name="Rock" type="Obstacle" x="462" y="472" width="32" height="32"/>

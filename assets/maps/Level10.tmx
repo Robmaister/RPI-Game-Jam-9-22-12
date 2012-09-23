@@ -14,7 +14,7 @@
   </data>
  </layer>
  <objectgroup name="Obstacles" width="32" height="24">
-  <object name="BoxFort" type="Obstacle" x="38" y="48" width="32" height="32"/>
+  <object name="BoxFort" x="37" y="37" width="32" height="32"/>
   <object name="Firetruck" type="Goal" x="113" y="445" width="32" height="32"/>
   <object name="ActionFigure" type="Goal" x="444" y="63" width="32" height="32"/>
   <object name="Dog" type="Goal" x="932" y="471" width="32" height="32"/>
